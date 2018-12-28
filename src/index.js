@@ -3,8 +3,9 @@ import * as rules from './rules';
 import * as utils from './utils';
 
 class V4l1d {
-  constructor() {
+  constructor(rules, utils) {
     this._rules = Object.assign({}, rules);
+    this._utils = Object.assign({}, utils);
     this.validate = validate;
   }
 
@@ -13,11 +14,11 @@ class V4l1d {
   }
 
   get utils() {
-    return utils;
+    return this._utils;
   }
 
   addRule(name, logic, defaultMessage) {
-    this._rules[name] =
+    this.rules[name] =
         (value, message) =>
           data =>
             logic(data, value)
@@ -26,4 +27,4 @@ class V4l1d {
   }
 }
 
-export default new V4l1d();
+export const v4l1d = new V4l1d(rules, utils);

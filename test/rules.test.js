@@ -1,5 +1,7 @@
 import { expect } from 'chai';
-import { required, email, limit } from '../src/rules';
+import { v4l1d } from '../dist/index';
+
+const { required, email, limit } = v4l1d.rules;
 
 describe('Rules', () => {
   describe('#required', () => {

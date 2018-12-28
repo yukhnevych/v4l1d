@@ -2,10 +2,11 @@
   "name": "v4l1d",
   "version": "1.0.0",
   "description": "Minimalistic library for complex objects and arrays validation.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha --require @babel/register",
-    "build:node": "babel src/index.js --out-file index.js"
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && babel src -d dist"
   },
   "repository": {
     "type": "git",
