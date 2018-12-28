@@ -1,0 +1,38 @@
+{
+  "name": "v4l1d",
+  "version": "1.0.0",
+  "description": "Minimalistic library for complex objects and arrays validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "build:node": "babel src/index.js --out-file index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yukhnevych/v4l1d.git"
+  },
+  "author": "Serhii Yukhnevych <s.yukhnevych@gmail.com>",
+  "keywords": [
+    "v4l1d",
+    "validator",
+    "validation",
+    "validate",
+    "valid",
+    "check"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.10.0",
+    "mocha": "^5.2.0"
+  }
+}
