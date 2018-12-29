@@ -1,8 +1,7 @@
 import { expect } from 'chai';
-import { v4l1d } from '../dist/index';
+import { validate, rules } from '../dist';
 
-const { all, bail, required, email, limit } = v4l1d.rules;
-const validate = v4l1d.validate;
+const { all, bail, required, email, limit } = rules;
 
 describe('validate', () => {
   describe('#object', () => {

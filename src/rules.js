@@ -2,43 +2,38 @@ import { isEmail, isEmpty } from 'validator';
 import { isNumber, isEmptyArray, isEmptyObject } from './utils';
 import { validateData } from './core';
 
-const bail = (...args) => _rules(0, args);
-const all = (...args) => _rules(1, args);
-const _rules = (all, rules) => data => validateData(all, rules, data);
-
-const required =
-    message =>
-      data =>
-        ((data || data === 0)
-          && !isEmptyArray(data)
-          && !isEmptyObject(data)
-          && !isEmpty(data))
-        || message
-        || 'This field is required!';
-
-const email =
-    message =>
-      data =>
-        isEmail(data)
-        || message
-        || 'This field is should be an email!';
-
-const limit =
-    (limit, message) => {
-      if (!limit || !isNumber(limit)) {
-        throw new TypeError(`Expection number as a first function argument but receiving ${typeof limit}!`);
+class Rules {
+  addRule(name, logic, defaultMessage) {
+    Object.defineProperty(this, name, {
+      value(value, message = defaultMessage) {
+        return data => logic(data, value) || message;
       }
+    });
+  }
 
-      return data =>
-        (data && data.length <= limit)
-        || message
-        || `The field length is greated than ${limit}!`;
-    };
+  all(...rules) {
+    return data => validateData(1, rules, data);
+  }
 
-export {
-  bail,
-  all,
-  required,
-  email,
-  limit
-};
+  bail(...rules) {
+    return data => validateData(0, rules, data);
+  }
+
+  required(message = 'This field is required!') {
+    return data => ((data || data === 0) && !isEmptyArray(data) && !isEmptyObject(data) && !isEmpty(data)) || message;
+  }
+
+  email(message = 'This field is should be an email!') {
+    return data => isEmail(data) || message;
+  }
+
+  limit(limit, message = `The field length is greated than ${limit}!`) {
+    if (!limit || !isNumber(limit)) {
+      throw new TypeError(`Expection number as a first function argument but receiving ${typeof limit}!`);
+    }
+
+    return data => (data && data.length <= limit) || message;
+  }
+}
+
+export const rules = new Rules;

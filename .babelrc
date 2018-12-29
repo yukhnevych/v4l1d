@@ -1,12 +1,15 @@
 {
+  "exclude": [
+    "/node_modules/"
+  ],
   "presets": [
-    "minify",
     [
       "@babel/preset-env",
       {
         "targets": {
-          "node": "0.10"
-        }
+          "node": "7"
+        },
+        "modules": "umd"
       }
     ]
   ]

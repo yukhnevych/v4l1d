@@ -1,4 +1,11 @@
 language: node_js
 node_js:
-  - "7"
-before_script: npm run build
+- '7'
+deploy:
+  provider: npm
+  email: s.yukhnevych@gmail.com
+  api_key:
+    secure: i0IZ2WJF6sEJ2L+XC3evIO7CL90U2i5lEzpXTpcA2KUkucoOT6EdENWV3qnf4TlSdsPXBlaupzTN1IV5cIzoZFreaxpFmZKDv/C/fvrych+2ehrhlHvwwHSJ/oc+A+YLWbrq2b6f0ES5tI3fBgOgwwbQPLcYgoCsxchmxti94e5IHpWTeiD/WWIzYVTucTtI0xhN6R/nwbsD+73pVuCAOSNX7WyqVky7hh0JvKrjh9hF+quRiiZVWcTZ6rortI/sywDcpqKJPUDYG0lLeYkRJPR45XJ5Qg+TL9BtXheIcKNs+dANZzxM1G7jzdwTJqqvDBZqgeQoGkaq/5U7aIhO0hd6Iw0parNwJy0Tgk8IEVM/ABLVhtVzmg45N3pZIu1lN1pcGDjEo+iGZQYznjrJcbAp9D0+faz+wtChx8j3bgiuqc+yaNE1vJeLte8fHxrP9YEblbTeGWl4p9slV7ljsBP7Ozl94uiUBij3kZkJs666HeKCyie7bqPzILzjHYTbyep+BpHrW1bmnKf3UIwcId8h2QGy9zmFTL4lMFNtcHwjwHorUIv6eHK7tPBWJn8A1d2eZB9+n0kMkD7FYl1VWCyeaNLPMaQjiSlhAQ4A+smukw6RWZ134jQ7cA9KDauCB2kD6GBudD+SEqGH/LQDnYc0pgToKg9QlwPfHR+qZWo=
+  on:
+    tags: true
+    repo: yukhnevych/v4l1d

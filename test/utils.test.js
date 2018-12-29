@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { v4l1d } from '../dist/index';
+import { utils } from '../dist';
 
-const { isNumber, isArray, isObject, isFunction, isEmptyArray, isEmptyObject } = v4l1d.utils;
+const { isNumber, isArray, isObject, isFunction, isEmptyArray, isEmptyObject } = utils;
 
 describe('Utils', () => {
   describe('#isNumber', () => {
