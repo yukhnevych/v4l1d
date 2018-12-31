@@ -7,7 +7,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "7"
+          "node": "0.10.0"
         },
         "modules": "umd"
       }

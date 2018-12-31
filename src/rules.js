@@ -1,4 +1,5 @@
-import { isEmail, isEmpty } from 'validator';
+import isEmail from 'validator/lib/isEmail';
+import isEmpty from 'validator/lib/isEmpty';
 import { isNumber, isFunction, isEmptyArray, isEmptyObject } from './utils';
 import { validateData } from './core';
 
