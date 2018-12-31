@@ -1,11 +1,11 @@
 import { isEmail, isEmpty } from 'validator';
-import { isNumber, isEmptyArray, isEmptyObject } from './utils';
+import { isNumber, isFunction, isEmptyArray, isEmptyObject } from './utils';
 import { validateData } from './core';
 
 class Rules {
   addRule(name, logic, defaultMessage) {
     Object.defineProperty(this, name, {
-      value(value, message = defaultMessage) {
+      value(value, message = isFunction(defaultMessage) ? defaultMessage(value) : defaultMessage) {
         return data => logic(data, value) || message;
       }
     });
