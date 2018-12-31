@@ -12,7 +12,7 @@
     "clean": "rm -rf ./dist",
     "clean:tmp": "rm -rf ./dist/.tmp",
     "compile": "babel src -d dist/.tmp",
-    "bundle": "browserify dist/.tmp/index.js -o dist/index.js -s v4l1d",
+    "bundle": "browserify dist/.tmp/index.js -s v4l1d | uglifyjs > dist/index.js",
     "build": "npm run clean && npm run compile && npm run bundle && npm run clean:tmp",
     "lint": "eslint .",
     "prepare": "npm run build",
@@ -43,11 +43,10 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-preset-minify": "^0.5.0",
     "browserify": "^16.2.3",
     "chai": "^4.2.0",
     "eslint": "^5.10.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "uglify-js": "^3.4.9"
   }
 }
