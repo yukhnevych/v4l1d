@@ -10,16 +10,16 @@
     "pretest": "npm run build",
     "test": "mocha --require @babel/register",
     "clean": "rm -rf ./dist",
-    "clean:tmp": "rm -rf ./dist/.tmp",
-    "compile": "babel src -d dist/.tmp",
-    "bundle": "browserify dist/.tmp/index.js -s v4l1d | uglifyjs > dist/index.js",
-    "build": "npm run clean && npm run compile && npm run bundle && npm run clean:tmp",
+    "clean:temp": "rm -rf ./dist/temp",
+    "compile": "babel src -d dist/temp",
+    "bundle": "browserify dist/temp/index.js -s v4l1d | uglifyjs > dist/index.js",
+    "build": "npm run clean && npm run compile && npm run bundle && npm run clean:temp",
     "lint": "eslint .",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push origin master && git push origin master --tags"
   },
   "repository": {
     "type": "git",
