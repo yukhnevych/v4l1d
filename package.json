@@ -15,7 +15,7 @@
     "bundle": "browserify dist/temp/index.js -s v4l1d | uglifyjs > dist/index.js",
     "build": "npm run clean && npm run compile && npm run bundle && npm run clean:temp",
     "lint": "eslint .",
-    "prepare": "npm run build",
+    "prepare": "npm install && npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "git add -A src",
