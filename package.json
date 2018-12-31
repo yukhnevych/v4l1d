@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Minimalistic library for complex objects and arrays validation.",
   "main": "dist/index.js",
+  "files": ["dist/**/*"],
   "scripts": {
     "pretest": "npm run build",
     "test": "mocha --require @babel/register",
@@ -11,7 +12,12 @@
     "compile": "babel src -d dist/.tmp",
     "bundle": "browserify dist/.tmp/index.js -o dist/index.js -s v4l1d",
     "build": "npm run clean && npm run compile && npm run bundle && npm run clean:tmp",
-    "postinstall": "npm run build"
+    "lint": "eslint .",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

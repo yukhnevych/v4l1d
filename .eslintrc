@@ -28,10 +28,6 @@
   },
   "parserOptions": {
     "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "impliedStrict": true
-    },
     "sourceType": "module",
     "spread": true
   }
