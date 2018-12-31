@@ -1,6 +1,6 @@
 {
   "name": "v4l1d",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Minimalistic library for complex objects and arrays validation.",
   "main": "dist/index.js",
   "files": [
