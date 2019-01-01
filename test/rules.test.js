@@ -14,9 +14,7 @@ describe('Rules', () => {
         value => `The value is less or equal than ${value}!`
       )
     ).to.be.an('undefined'));
-
     it(`Rules object should have ${methodName} method!`, () => expect(rules).to.have.own.property(methodName));
-
     it('Should be true when passed value is greater!', () => expect(rules[methodName](10)(11)).to.be.true);
     it('Should return error message when passed value is lesser!', () => expect(rules[methodName](10)(9)).to.be.a('string'));
   });
