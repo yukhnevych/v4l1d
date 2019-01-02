@@ -31,7 +31,8 @@ Rules is an object with all rules available in the library, also, it has method 
 
 ```ts
 // Adds new rule to rules object.
-addRule(
+// This method MUST be called from rules context to be able to add new rule to the object.
+rules.addRule(
   this: Object,
   name: string,
   logic: Function(data: any, value: any): boolean,
@@ -52,7 +53,7 @@ Rule | Description
 -----|-------------
 `required(message?: string)` | The value is required.
 `email(message?: string)` | The value must be a valid email address.
-`limit(message?: string)` | The value must be within the limit.
+`limit(value: any, message?: string)` | The value must be within the limit.
 
 ### `validate`
 Function that performs validation of the data agains the shape.
